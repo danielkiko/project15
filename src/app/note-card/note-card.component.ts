@@ -67,8 +67,8 @@ export class NoteCardComponent implements OnInit {
     this.gettypename(this.inputNote.type);
   }
   gettypename(index) {
-    let typeindex = this.types.findIndex(x => x.id == index);
-    this.typename = this.types[typeindex].name;
+    let typeindex = this.types.find(x => x.id == index);
+    this.typename = typeindex.name;
   }
 
 }
