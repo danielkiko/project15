@@ -12,19 +12,15 @@
     <div class="mt-5 border border-primary rounded shadow-lg p-3 mb-5 bg-white rounded">
         <form [formGroup]="NoteForm">
             <p><input type="text" name="notetitle" class="form-control w-50" formControlName="name"></p>
-            <p><textarea name="maintext" id="1" cols="30" rows="10" class="maintext"
-                    formControlName="maintext"></textarea></p>
+            <p><textarea name="maintext" id="1" cols="30" rows="10" class="maintext" formControlName="maintext"></textarea></p>
         </form>
         <form [formGroup]="TypeForm" class='container-fluid'>
             <div>
                 <select class="form-control w-50 mb-5" name="types" id="type" formControlName="name">
-                    <option [ngValue]="null" disabled hidden>{{typename}}</option>
-                    <option *ngFor="let type of types" value="{{type.id}}" selected> {{type.name}} </option>
+                    <option *ngFor="let type of types" value="{{type.id}}"> {{type.name}} </option>
                 </select>
             </div>
         </form>
         <p><input type="button" value="Сохранить" (click)="onEditNote()" class="btn btn-info mt-1"></p>
     </div>
-
-
 </ng-template>

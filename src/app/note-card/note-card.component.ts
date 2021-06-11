@@ -43,6 +43,7 @@ export class NoteCardComponent implements OnInit {
     this.NoteForm = this.fb.group(controls);
     if (this.inputNote) {
       this.NoteForm.patchValue(this.inputNote);
+      
     }
 
   }
@@ -61,14 +62,16 @@ export class NoteCardComponent implements OnInit {
       console.log(this.NoteForm.value);
       this.noteEdit.emit(note);
     }
+    
   }
   async getData() {
     this.types = await this.httpNoteservice.getTypes();
+    this.TypeForm.controls['name'].setValue(this.inputNote.type);
     this.gettypename(this.inputNote.type);
   }
   gettypename(index) {
-    let typeindex = this.types.find(x => x.id == index);
-    this.typename = typeindex.name;
+    const type = this.types.find(x => x.id == index);
+    this.typename = type.name;
   }
 
 }
